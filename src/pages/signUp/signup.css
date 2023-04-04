@@ -1,0 +1,43 @@
+.signUp__divTwo{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-shadow: 0px 0px 10px #777;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.signUp__divThree{
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 8%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    font-size: 14px;
+    color: black;
+    border: 2px solid #6EEB83;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.signUp__divThree > div{
+    margin: auto;
+}
+
+.signUp__label {
+  font-size: 14px;
+  color: #424242;
+}
+
+.signUp__links {
+  font-size: 14px;
+}

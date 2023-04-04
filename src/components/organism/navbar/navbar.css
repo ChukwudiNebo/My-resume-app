@@ -1,0 +1,54 @@
+.navbar {
+  background-color: #f4f4f4;
+}
+/* .navbar__logo{
+    height: 50px;
+    width: 50px;
+} */
+
+.navbar__template {
+  font-size: 15px;
+  color: #777;
+  /* border: 2px solid #6eeb83; */
+  padding: 9px 20px;
+  border-radius: 30%;
+  -webkit-border-radius: 30%;
+  -moz-border-radius: 30%;
+  -ms-border-radius: 30%;
+  -o-border-radius: 30%;
+}
+
+.navbar__logIn {
+  padding: 9px 20px;
+  border: 2px solid #6eeb83;
+  /* color:  #ff5500 !important; */
+  /* color: black; */
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  outline: none;
+  text-decoration: none;
+}
+
+.navbar__logIn > a {
+  color: black;
+  text-decoration: none !important;
+}
+
+.navbar__signUp {
+  background-color: #6eeb83;
+  border: 2px solid #6eeb83;
+  /* background-color: black; */
+  color: black !important;
+  border-radius: 5px;
+  padding: 9px 20px;
+  font-weight: bold;
+  font-size: 15px;
+  outline: none;
+  /* margin-left: 10px; */
+}
+
+.navbar__signUp > a {
+  color: white;
+  text-decoration: none !important;
+}

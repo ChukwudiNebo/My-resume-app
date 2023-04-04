@@ -1,0 +1,48 @@
+/* .sideNavbarTray {
+  margin-top: 30px;
+} */
+
+
+.sideNavbarTray   a{
+  text-decoration: none !important;
+}
+
+.sideNavbarTray__dashboard {
+  /* background-image: linear-gradient(98.7deg, #5240f9 19.95%, #f3526d 89.51%); */
+  border: none;
+  /* background-color: black; */
+  color: black !important;
+  /* color: white !important; */
+  font-weight: bold;
+  width: 210px;
+  margin-bottom: 17px;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.sideNavbarTray__img-box {
+  /* height: 2rem; */
+  margin-right: 15px;
+  transition: all 0.6s;
+  color: black !important;
+  /* width: 2rem; */
+  /* color: white !important; */
+}
+
+
+.sideNavbarTray__dashboardText{
+    font-size: 15px;
+    font-weight: 500;
+    color: black !important;
+}
+
+.sideNavbarTray__dash-icon{
+  /* width: 50px; */
+  margin-left: 4.2rem;
+  font-size: 0.7rem;
+}
