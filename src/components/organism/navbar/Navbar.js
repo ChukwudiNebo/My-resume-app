@@ -1,13 +1,28 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import ImgNfontAwesome from '../../atoms/imgNfontawesome/ImgNfontAwesome'
-import Text from '../../atoms/text/Text'
-import logo from '../../../images/logo.jpg'
+import React from "react";
+import { Link } from "react-router-dom";
+import ImgNfontAwesome from "../../atoms/imgNfontawesome/ImgNfontAwesome";
+import Text from "../../atoms/text/Text";
+import logo from "../../../images/logo.jpg";
+import Hamburger from "../../atoms/hamburger/Hamburger";
 
-import './navbar.css'
-import Hamburger from '../../atoms/hamburger/Hamburger'
+import "./navbar.css";
+
+import { toast } from "react-toastify";
+
+import { getAuth, signOut } from "firebase/auth";
 
 const Navbar = () => {
+  const auth = getAuth();
+  const signOutButton = () => {
+    signOut(auth).then(() => {
+      toast.success("Log out successful");
+    }).catch((error)=>{
+            toast.danger(error);
+            // toast.danger("Log out error");
+
+    })
+  };
+
   return (
     <>
       <div className="navbar">
@@ -40,7 +55,7 @@ const Navbar = () => {
                 <Text text="Log in" />
               </Link>
             </div> */}
-              <div className="navbar__signUp mx-3">
+              <div className="navbar__signUp mx-3" onClick={signOutButton}>
                 <Link to="/sign-up">
                   <Text text="Log Out" />
                 </Link>
@@ -53,6 +68,6 @@ const Navbar = () => {
       </div>
     </>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

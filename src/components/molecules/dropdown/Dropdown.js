@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import './dropdown.css'
+import { Link } from "react-router-dom";
+import "./dropdown.css";
 const Dropdown = ({ submenu, dropdown }) => {
   // const [name, id, to, fontAwesome ]=submenu
   //   const [submenus, setSubmenus] = useState([]);
@@ -7,7 +8,7 @@ const Dropdown = ({ submenu, dropdown }) => {
   //     // setSubmenus([...submenu]);
   //     setSubmenus((prev) => [...prev, submenu]);
   //   }, []);
-//   console.log(submenu);
+  // console.log(submenu[0].to);
   return (
     <>
       <ul
@@ -16,7 +17,11 @@ const Dropdown = ({ submenu, dropdown }) => {
         }`}
       >
         {submenu.map((sub, index) => {
-          return <li key={index}>{sub.name}</li>;
+          return (
+            <Link to={sub.to} key={index}>
+              <li>{sub.name}</li>
+            </Link>
+          );
         })}
       </ul>
       {/* {submenu} */}

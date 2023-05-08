@@ -25,7 +25,6 @@ const SideNavbarTrays = () => {
     {
       name: "My Resume",
       id: "favorite",
-      to: "favorite",
       fontAwesome: "fa-solid fa-book-open-cover",
       submenu: [
         {
@@ -43,7 +42,7 @@ const SideNavbarTrays = () => {
         {
           name: "preview",
           id: "preview",
-          to: "preview",
+          to: "/resume/preview",
           fontAwesome: "fa-solid fa-book-open-cover",
         },
         {
@@ -75,35 +74,35 @@ const SideNavbarTrays = () => {
     },
     {
       name: "Settings",
-      id: "cards",
-      to: "cards",
+      id: "settings",
+      to: "settings",
       fontAwesome: "fa-solid fa-book-open-cover",
       // submenu: [],
     },
     {
       name: "Proofreading",
-      id: "cards",
+      id: "Proofreading",
+      to: "proofreading",
+      fontAwesome: "fa-solid fa-book-open-cover",
+      // submenu: [],
+    },
+    {
+      name: "Cards",
+      id: "cards1",
       to: "cards",
       fontAwesome: "fa-solid fa-book-open-cover",
       // submenu: [],
     },
     {
       name: "Cards",
-      id: "cards",
+      id: "cards2",
       to: "cards",
       fontAwesome: "fa-solid fa-book-open-cover",
       // submenu: [],
     },
     {
       name: "Cards",
-      id: "cards",
-      to: "cards",
-      fontAwesome: "fa-solid fa-book-open-cover",
-      // submenu: [],
-    },
-    {
-      name: "Cards",
-      id: "cards",
+      id: "cards3",
       to: "cards",
       fontAwesome: "fa-solid fa-book-open-cover",
       // submenu: [],
@@ -117,13 +116,14 @@ const SideNavbarTrays = () => {
             return (
               <div key={id} className="sideNavbarTray">
                 <div>
-                  {/* <Link to={to}> */}
                   {submenu ? (
                     <div>
+                      {/* <Link to={to}> */}
                       <button
                         className="d-flex flew-row flex-nowrap align-items-center sideNavbarTray__dashboard"
                         type="button"
                         onClick={() => setDropdown(!dropdown)}
+                        to={to}
                       >
                         <span className="sideNavbarTray__img-box">
                           <ImgNfontAwesome fontAwesome={fontAwesome} />
@@ -142,32 +142,36 @@ const SideNavbarTrays = () => {
                         </div>
                       </button>
 
-                      <div className="">
-                        <Dropdown submenu={submenu} dropdown={dropdown} />
-                      </div>
+                      {/* <Link to={to}> */}
+                        <div className="">
+                          <Dropdown submenu={submenu} dropdown={dropdown} />
+                        </div>
+                      {/* </Link> */}
                     </div>
                   ) : (
-                    <button
-                      className="d-flex flew-row flex-nowrap align-items-center sideNavbarTray__dashboard"
-                      type="button"
-                      
-                    >
-                      <span className="sideNavbarTray__img-box">
-                        <ImgNfontAwesome fontAwesome={fontAwesome} />
-                        {/* <img
+                    <Link to={to}>
+                      <button
+                        className="d-flex flew-row flex-nowrap align-items-center sideNavbarTray__dashboard"
+                        type="button"
+                        to={to}
+                      >
+                        <span className="sideNavbarTray__img-box">
+                          <ImgNfontAwesome fontAwesome={fontAwesome} />
+                          {/* <img
                       src={dashboardImg}
                       alt=""
                       className="img"
                       style={{ color: "white" }}
                     /> */}
-                      </span>
-                      <span className="align-self-center sideNavbarTray__dashboardText">
-                        {name}
-                      </span>
-                      <div className="sideNavbarTray__dash-icon">
-                        <ImgNfontAwesome fontAwesome="fa-solid fa-angle-down" />
-                      </div>
-                    </button>
+                        </span>
+                        <span className="align-self-center sideNavbarTray__dashboardText">
+                          {name}
+                        </span>
+                        <div className="sideNavbarTray__dash-icon">
+                          <ImgNfontAwesome fontAwesome="fa-solid fa-angle-down" />
+                        </div>
+                      </button>
+                    </Link>
                   )}
                   {/* {console.log(submenu)} */}
                 </div>

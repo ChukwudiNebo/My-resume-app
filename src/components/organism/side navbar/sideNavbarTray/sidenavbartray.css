@@ -1,7 +1,9 @@
 /* .sideNavbarTray {
   margin-top: 30px;
 } */
-
+.sideNavbarTray{
+  overflow: hidden;
+}
 
 .sideNavbarTray   a{
   text-decoration: none !important;

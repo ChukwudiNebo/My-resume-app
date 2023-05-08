@@ -1,11 +1,11 @@
 /* .login{ */
-    /* background-color: rgb(49, 47, 47); */
+/* background-color: rgb(49, 47, 47); */
 
-    /* color: white; */
+/* color: white; */
 /* } */
 
-
-.login__divTwo{
+@media screen and (min-width: 100px) {
+  .login__divTwo {
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 8%;
@@ -20,9 +20,9 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-}
+  }
 
-.login__divThree{
+  .login__divThree {
     text-align: center;
     padding-left: 15%;
     padding-right: 8%;
@@ -30,10 +30,62 @@
     padding-bottom: 3%;
     font-size: 14px;
     color: black;
-    border: 2px solid #6EEB83;
+    border: 2px solid #6eeb83;
     border-radius: 10px;
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  .login__divThree > div {
+    /* width: 300px; */
+    margin: auto;
+  }
+
+  .login__label {
+    font-size: 14px;
+    color: #424242;
+  }
+
+  .login__links {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 576px) {
+}
+@media screen and (min-width: 768px) {
+        .login__divTwo{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 3%;
+    padding-right: 3%;
+    box-shadow: 0px 0px 10px #777;
+    margin-left: 29%;
+    margin-right: 25%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.login__divThree{
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 8%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 14px;
+    color: black;
+    border: 2px solid #6EEB83;
+    margin-left: 29%;
+    margin-right: 25%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .login__divThree > div{
@@ -49,5 +101,111 @@
 
 .login__links{
     font-size: 14px;
+    margin-left: 29%;
+    margin-right: 25%;
 }
+}
+@media screen and (min-width: 992px) {
+  .login__divTwo {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 3%;
+    padding-right: 3%;
+    box-shadow: 0px 0px 10px #777;
+    margin-left: 29%;
+    margin-right: 25%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
 
+  .login__divThree {
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 8%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 14px;
+    color: black;
+    border: 2px solid #6eeb83;
+    margin-left: 29%;
+    margin-right: 25%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+
+  .login__divThree > div {
+    /* width: 300px; */
+    margin: auto;
+  }
+
+  .login__label {
+    font-size: 14px;
+    color: #424242;
+  }
+
+  .login__links {
+    font-size: 14px;
+    margin-left: 29%;
+    margin-right: 25%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .login__divTwo {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 3%;
+    padding-right: 3%;
+    box-shadow: 0px 0px 10px #777;
+    margin-left: 29%;
+    margin-right: 25%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+
+  .login__divThree {
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 8%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 14px;
+    color: black;
+    border: 2px solid #6eeb83;
+    margin-left: 29%;
+    margin-right: 25%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+
+  .login__divThree > div {
+    /* width: 300px; */
+    margin: auto;
+  }
+
+  .login__label {
+    font-size: 14px;
+    color: #424242;
+  }
+
+  .login__links {
+    font-size: 14px;
+    margin-left: 29%;
+    margin-right: 25%;
+  }
+}

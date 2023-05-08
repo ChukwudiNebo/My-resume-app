@@ -1,7 +1,7 @@
 .SideNavbar{
     position: fixed;
     top:11%;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 /* .SideNavbar::-webkit-scrollbar{
