@@ -1,0 +1,9 @@
+.labelEditable input:focus,input:active{
+border: 0px;
+outline: 0px;
+}
+
+.labelEditable{
+    margin: 0px;
+    font-size: 13px;
+}

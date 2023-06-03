@@ -7,7 +7,7 @@ import "./App.css";
 import Home from "./pages/Home/Home";
 import Template from "./components/organism/template/Template";
 import FillIn from "./components/organism/resume/fill in/FillIn";
-import Design from "./components/organism/resume/design/Design";
+// import Design from "./components/organism/resume/design/Design";
 import Preview from "./components/organism/resume/preview/Preview";
 
 // import { app, database } from "./firebase/firebaseConfig";
@@ -42,9 +42,9 @@ const App = () => {
               <Route path="/templates" exact element={<Template />} />
               <Route path="fill-in" exact element={<FillIn />} />
               <Route path="/resume">
-                <Route path="/design" exact element={<Design />} />
+                {/* <Route path="/design" exact element={<Design />} /> */}
                 {/* preview is will be a modal in future */}
-                <Route path="/preview" exact element={<Preview />} />
+                <Route path="preview" exact element={<Preview />} />
               </Route>
             </Route>
 

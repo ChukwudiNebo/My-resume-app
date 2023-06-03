@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 // import firebase from 'firebase/compat/app';
 // import 'firebase/compat/auth'
-import { getAuth } from "firebase/auth";
+// import { getAuth } from "firebase/auth";
+import { auth } from "../firebase/firebaseConfig";
 
 // const PrivateRoute = ({ path, ...props }) => {
 //   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,7 +28,7 @@ const PrivateRoute = () => {
    });
 
    useEffect(() => {
-     const auth = getAuth();
+    //  const auth = getAuth();
      const unsubscribe = auth.onAuthStateChanged((user) => {
        if (user) {
          setAuthState({

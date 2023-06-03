@@ -111,7 +111,8 @@ const FiIn = () => {
   function writeUserData(userId, firstName, lastName, email, phoneNumber) {
     console.log(userId, firstName, lastName);
     const db = getDatabase();
-    set(ref(db, "userResume/" + userId), {
+    set(ref(db, 'userResume/' + userId), {
+      userId,
       firstName,
       lastName,
       email,

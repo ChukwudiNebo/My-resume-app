@@ -2,8 +2,15 @@ import React, { useState } from "react";
 import Label from "../../../atoms/label/Label";
 
 import Input from "../../../atoms/input/Input";
+import LabelEditable from "../../../atoms/label/LabelEditable";
 
-const PersonalInfoInput = ({ inputField, onInputChange }) => {
+const PersonalInfoInput = ({
+  inputField,
+  onInputChange,
+  changedInputField,
+  editInputFunc,
+}) => {
+  // console.log({ "editInputFunc >>>>":editInputFunc });
   // const [inputField, setInputField] = useState({
   //   firstName: "",
   //   lastName: "",
@@ -20,8 +27,10 @@ const PersonalInfoInput = ({ inputField, onInputChange }) => {
   //   });
   //   console.log(inputField);
   // };
-
-  
+  const [changeLabel, setChangeLabel] = useState(1);
+  const editLable = () => {
+    setChangeLabel();
+  };
 
   return (
     <>
@@ -30,14 +39,25 @@ const PersonalInfoInput = ({ inputField, onInputChange }) => {
       <div>
         <div className="d-flex flex-wrap">
           <div className="my-2">
-            <div className="signUp__label">
-              <Label label="First name" />
+            <div className="signUp__label" onClick={editLable} style={{margin:"0px"}}>
+              {changeLabel === 1 ? (
+                <Label label={changedInputField.label} />
+              ) : (
+                // label="First name"
+                <LabelEditable
+                  onChange={editInputFunc}
+                  // inputPlaceholder="First Name"
+                  inputType="text"
+                  inputName="firstName"
+                  inputValue={changedInputField.label}
+                />
+              )}
             </div>
             <div className="my-1">
               <Input
                 inputType="text"
                 inputName="firstName"
-                inputPlaceholder="First Name"
+                // inputPlaceholder="First Name"
                 inputValue={firstName}
                 onChange={onInputChange}
                 // inputValue={inputField.firstName}
@@ -107,7 +127,6 @@ const PersonalInfoInput = ({ inputField, onInputChange }) => {
 
 export default PersonalInfoInput;
 
-
 // import React from "react";
 // import Label from "../../../atoms/label/Label";
 // import Input from "../../../atoms/input/Input";
@@ -115,23 +134,22 @@ export default PersonalInfoInput;
 // const PersonalInfoInput = ({ inputField, onInputChange }) => {
 //   const { firstName, lastName, email, phoneNumber } = inputField;
 
-      // <div>
-      //   <div className="d-flex flex-wrap">
-      //     <div className="my-2">
-      //       <div className="signUp__label">
-      //         <Label label="First name" />
-      //       </div>
-      //       <div className="my-1">
-      //         <Input
-      //           inputType="text"
-      //           inputName="firstName"
-      //           inputPlaceholder="First Name"
-      //           inputValue={firstName}
-      //           onChange={onInputChange}
-      //         />
-      //       </div>
-      //     </div>
-      //     <div className="my-2">
-      //       <div className="signUp__label">
-      //         <Label label="Last name" />
-           
+// <div>
+//   <div className="d-flex flex-wrap">
+//     <div className="my-2">
+//       <div className="signUp__label">
+//         <Label label="First name" />
+//       </div>
+//       <div className="my-1">
+//         <Input
+//           inputType="text"
+//           inputName="firstName"
+//           inputPlaceholder="First Name"
+//           inputValue={firstName}
+//           onChange={onInputChange}
+//         />
+//       </div>
+//     </div>
+//     <div className="my-2">
+//       <div className="signUp__label">
+//         <Label label="Last name" />
