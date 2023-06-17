@@ -23,7 +23,7 @@ import templateTwoTwo from "../images/templates/thumbnail (22).png";
 import templateTwoThree from "../images/templates/thumbnail (23).png";
 import templateTwoFour from "../images/templates/thumbnail (24).png";
 import templateTwoFive from "../images/templates/thumbnail (25).png";
-import templateTwoSix from "../images/templates/thumbnail (26).png";
+// import templateTwoSix from "../images/templates/thumbnail (26).png";
 
 
 const id = Math.random();
@@ -55,7 +55,7 @@ const ImgData = [
   { id: id, template: templateTwoThree },
   { id: id, template: templateTwoFour },
   { id: id, template: templateTwoFive },
-  { id: id, template: templateTwoSix },
+  // { id: id, template: templateTwoSix },
 ];
 
 export default ImgData;
