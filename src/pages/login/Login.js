@@ -5,6 +5,7 @@ import Label from "../../components/atoms/label/Label";
 import BgImg from "../../components/atoms/backgroundImage/BgImg";
 import Input from "../../components/atoms/input/Input";
 import Button from "../../components/atoms/button/Button";
+import ButtonSpinner from "../../components/atoms/button/ButtonSpinner";
 
 import {
   getAuth,
@@ -20,6 +21,11 @@ import "./login.css";
 const Login = () => {
   // Navigate
   const navigate = useNavigate();
+  const [buttonText, setButtonText] = useState(
+    <Button buttonText="login" width="100" />
+  );
+
+  // const [loading, setLoading] = useState(true);
 
   const auth = getAuth();
   const [logIn, setLogIn] = useState({
@@ -38,31 +44,44 @@ const Login = () => {
   };
 
   const submitLogin = () => {
+    setButtonText(<ButtonSpinner width={100} />);
     if (!email && !password) {
       toast.error("Invalid Credentials");
+      // setButtonText(buttonText);
+    }else{
+    setButtonText(<ButtonSpinner width={100} />);
     }
-
-    setPersistence(auth, browserSessionPersistence)
-      .then(() => {
-        //Existing and future Auth states are now persisted in the current session only.closing the window would clear any existing state even if the user forgets to sign out.
-        // New sign-in will be persisted with session persistence
-        signInWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            if (user) {
-              toast.success("Log in successful");
-              navigate("/");
-            }
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            toast.error(errorCode);
-          });
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        toast.error(errorCode);
-      });
+    setTimeout(() => {
+      if (!email && !password) {
+        toast.error("Invalid Credentials");
+      }
+      setPersistence(auth, browserSessionPersistence)
+        .then(() => {
+          //Existing and future Auth states are now persisted in the current session only.closing the window would clear any existing state even if the user forgets to sign out.
+          // New sign-in will be persisted with session persistence
+          signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              if (user) {
+                // setLoading(false);
+                toast.success("Log in successful");
+                navigate("/");
+              } else {
+                setButtonText(buttonText);
+              }
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              toast.error(errorCode);
+              setButtonText(buttonText);
+            });
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          toast.error(errorCode);
+          setButtonText(buttonText);
+        });
+    }, 100);
 
     // when i signIn and refresh the page, it takes me back to the login page as i hit private routes
     // signInWithEmailAndPassword(auth, email, password)
@@ -127,9 +146,16 @@ const Login = () => {
               </div>
             </form>
           </div>
-          <div className="my-3" onClick={() => submitLogin()}>
-            <Button buttonText="Log In" width="100" />
+          <div className="my-3">
+            {<div onClick={() => submitLogin()}>{buttonText}</div>}
           </div>
+          {/* <div className="my-3" onClick={() => submitLogin()}>
+            {loading ? (
+              <Button buttonText="Loading" width="100" />
+            ) : (
+              <Button buttonText="Log In" width="100" />
+            )}
+          </div> */}
         </div>
 
         <div className="login__divThree">

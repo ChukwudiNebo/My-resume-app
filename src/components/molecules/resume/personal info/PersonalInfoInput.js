@@ -38,8 +38,8 @@ const PersonalInfoInput = ({
       {/* <form onSubmit={(e) => OnSubmit(e)> */}
       <div>
         <div className="d-flex flex-wrap">
-          <div className="my-2">
-            <div className="signUp__label" onClick={editLable} style={{margin:"0px"}}>
+          <div className="my-2 mx-2">
+            <div className="signUp__label d-flex justify-content-between" onClick={editLable} style={{margin:"0px",cursor: "pointer"}}>
               {changeLabel === 1 ? (
                 <Label label={changedInputField.label} />
               ) : (
@@ -52,6 +52,7 @@ const PersonalInfoInput = ({
                   inputValue={changedInputField.label}
                 />
               )}
+              <p className="mr-2">edit</p>
             </div>
             <div className="my-1">
               <Input
