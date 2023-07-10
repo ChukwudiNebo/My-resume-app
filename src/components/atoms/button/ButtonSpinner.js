@@ -4,7 +4,7 @@ import React from 'react'
 const ButtonSpinner = ({width}) => {
   return (
     <>
-      <button type="button" className="button" style={{width: "100%"}}>
+      <button type="button" className="button" style={{width: "100%"}} disabled>
         {/* <img src={spinner} alt="" style={{ width: `${width}%`,height:"30px",marginLeft:"auto",marginRight:"auto" }} /> */}
         <i
           className="fa-solid fa-spinner fa-spin"

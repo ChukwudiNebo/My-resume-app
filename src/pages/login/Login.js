@@ -25,7 +25,7 @@ const Login = () => {
     <Button buttonText="login" width="100" />
   );
 
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const auth = getAuth();
   const [logIn, setLogIn] = useState({
@@ -40,21 +40,19 @@ const Login = () => {
       ...logIn,
       [e.target.name]: e.target.value,
     });
-    console.log(logIn);
   };
 
   const submitLogin = () => {
+    setLoading(true);
     setButtonText(<ButtonSpinner width={100} />);
-    if (!email && !password) {
-      toast.error("Invalid Credentials");
-      // setButtonText(buttonText);
-    }else{
-    setButtonText(<ButtonSpinner width={100} />);
-    }
+    // if (!email && !password) {
+    //   toast.error("Invalid Credentials");
+    //   setButtonText(buttonText);
+    // }
+    //  else {
+    //   setButtonText(<ButtonSpinner width={100} />);
+    // }
     setTimeout(() => {
-      if (!email && !password) {
-        toast.error("Invalid Credentials");
-      }
       setPersistence(auth, browserSessionPersistence)
         .then(() => {
           //Existing and future Auth states are now persisted in the current session only.closing the window would clear any existing state even if the user forgets to sign out.
@@ -63,10 +61,11 @@ const Login = () => {
             .then((userCredential) => {
               const user = userCredential.user;
               if (user) {
-                // setLoading(false);
+                setLoading(true);
                 toast.success("Log in successful");
                 navigate("/");
               } else {
+                setLoading(false);
                 setButtonText(buttonText);
               }
             })
@@ -74,32 +73,21 @@ const Login = () => {
               const errorCode = error.code;
               toast.error(errorCode);
               setButtonText(buttonText);
+              setLoading(false);
+              console.log("2");
             });
         })
         .catch((error) => {
           const errorCode = error.code;
+          setLoading(false);
           toast.error(errorCode);
           setButtonText(buttonText);
         });
-    }, 100);
+      setLoading(false);
+      setButtonText(<Button buttonText="login" width="100" />);
+    }, 1000);
 
     // when i signIn and refresh the page, it takes me back to the login page as i hit private routes
-    // signInWithEmailAndPassword(auth, email, password)
-    //   .then((userCredential) => {
-    //     const user = userCredential.user;
-    //     if (user) {
-    //       toast.success("Log in successful");
-    //       navigate("/");
-    //     }
-    //     // console.log(user);
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     toast.error(errorCode);
-    //     // console.log(errorCode);
-    //     // const errorMessage = error.message;
-    //     // console.log(errorMessage);
-    //   });
   };
 
   return (
@@ -147,7 +135,11 @@ const Login = () => {
             </form>
           </div>
           <div className="my-3">
-            {<div onClick={() => submitLogin()}>{buttonText}</div>}
+            {loading ? (
+              <div>{buttonText}</div>
+            ) : (
+              <div onClick={() => submitLogin()}>{buttonText}</div>
+            )}
           </div>
           {/* <div className="my-3" onClick={() => submitLogin()}>
             {loading ? (
