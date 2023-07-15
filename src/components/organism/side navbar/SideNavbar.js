@@ -5,23 +5,28 @@ import SideNavbarTrays from "./sideNavbarTray/SideNavbarTrays";
 
 import "./sidenavbar.css";
 
-const SideNavbar = () => {
-  const [navbar, setNavbar] = useState(true);
+const SideNavbar =React.memo( ({ onClickSideNavbar,navbar }) => {
+  // const [navbar, setNavbar] = useState(true);
 
   return (
     <>
       <div className="d-flex justify-content-between">
         <div className="d-flex SideNavbar">
           <div
-            className="SideNavbar__hamburger order-2"
-            onClick={() => setNavbar(!navbar)}
+            className={`${
+              !navbar ? "SideNavbar__hamburger" : "SideNavbar__hamburger-none"
+            }  order-2 d-none d-lg-block`}
+            onClick={() => onClickSideNavbar(false)}
           >
-            <Hamburger navbar={navbar} />
+            <Hamburger />
           </div>
           {/* <div className="SideNavbar__navbar"> */}
           <div className="order-1">
-            {navbar && (
-              <div className="SideNavbar__sideNavbarTray" style={{paddingBottom:"300px"}}>
+            {!navbar && (
+              <div
+                className="SideNavbar__sideNavbarTray"
+                style={{ paddingBottom: "300px" }}
+              >
                 <div>
                   <SideNavbarTrays />
                 </div>
@@ -31,13 +36,13 @@ const SideNavbar = () => {
         </div>
 
         {/* </div> */}
-        <div className={navbar? 'outlet': 'outletFull'} >
+        <div className={!navbar ? "outlet" : "outletFull"}>
           <Outlet />
         </div>
       </div>
     </>
   );
-};
+});
 
 export default SideNavbar;
 

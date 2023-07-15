@@ -66,9 +66,9 @@ const SideNavbarTrays = () => {
       ],
     },
     {
-      name: "Cards",
-      id: "cards",
-      to: "cards",
+      name: "Profile",
+      id: "profile",
+      to: "profile",
       fontAwesome: "fa-solid fa-book-open-cover",
       // submenu: [],
     },
@@ -87,10 +87,10 @@ const SideNavbarTrays = () => {
       // submenu: [],
     },
     {
-      name: "Cards",
-      id: "cards1",
-      to: "cards",
-      fontAwesome: "fa-solid fa-book-open-cover",
+      name: "Buy Templates",
+      id: "buy-template",
+      to: "buy-template",
+      // fontAwesome: "fa-solid fa-book-open-cover",
       // submenu: [],
     },
     {
@@ -143,34 +143,56 @@ const SideNavbarTrays = () => {
                       </button>
 
                       {/* <Link to={to}> */}
-                        <div className="">
-                          <Dropdown submenu={submenu} dropdown={dropdown} />
-                        </div>
+                      <div className="">
+                        <Dropdown submenu={submenu} dropdown={dropdown} />
+                      </div>
                       {/* </Link> */}
                     </div>
                   ) : (
                     <Link to={to}>
-                      <button
-                        className="d-flex flew-row flex-nowrap align-items-center sideNavbarTray__dashboard"
-                        type="button"
-                        to={to}
-                      >
-                        <span className="sideNavbarTray__img-box">
-                          <ImgNfontAwesome fontAwesome={fontAwesome} />
-                          {/* <img
+                      {name == "Profile" && "Buy Templates" ? (
+                        <button
+                          className="d-lg-none d-flex flew-row flex-nowrap align-items-center sideNavbarTray__dashboard"
+                          type="button"
+                          to={to}
+                        >
+                          <span className="sideNavbarTray__img-box">
+                            <ImgNfontAwesome fontAwesome={fontAwesome} />
+                            {/* <img
                       src={dashboardImg}
                       alt=""
                       className="img"
                       style={{ color: "white" }}
                     /> */}
-                        </span>
-                        <span className="align-self-center sideNavbarTray__dashboardText">
-                          {name}
-                        </span>
-                        <div className="sideNavbarTray__dash-icon">
-                          <ImgNfontAwesome fontAwesome="fa-solid fa-angle-down" />
-                        </div>
-                      </button>
+                          </span>
+                          <span className="align-self-center sideNavbarTray__dashboardText">
+                            {name}
+                          </span>
+                          <div className="sideNavbarTray__dash-icon">
+                            <ImgNfontAwesome fontAwesome="fa-solid fa-angle-down" />
+                          </div>
+                        </button>
+                      ) : (
+                        <button
+                          className="d-flex flew-row flex-nowrap align-items-center sideNavbarTray__dashboard"
+                          type="button"
+                          to={to}
+                        >
+                          <span className="sideNavbarTray__img-box">
+                            <ImgNfontAwesome fontAwesome={fontAwesome} />
+                            {/* <img
+                      src={dashboardImg}
+                      alt=""
+                      className="img"
+                      style={{ color: "white" }}
+                    /> */}
+                          </span>
+                          <span className="align-self-center sideNavbarTray__dashboardText">
+                            {name}
+                          </span>
+                         
+                        </button>
+                      )}
                     </Link>
                   )}
                   {/* {console.log(submenu)} */}

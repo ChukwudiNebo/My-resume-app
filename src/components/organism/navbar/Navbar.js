@@ -11,16 +11,17 @@ import { toast } from "react-toastify";
 
 import { getAuth, signOut } from "firebase/auth";
 
-const Navbar = () => {
+const Navbar = React.memo(({ onClickNavbar }) => {
   const auth = getAuth();
   const signOutButton = () => {
-    signOut(auth).then(() => {
-      toast.success("Log out successful");
-    }).catch((error)=>{
-            toast.danger(error);
-            // toast.danger("Log out error");
-
-    })
+    signOut(auth)
+      .then(() => {
+        toast.success("Log out successful");
+      })
+      .catch((error) => {
+        toast.danger(error);
+        // toast.danger("Log out error");
+      });
   };
 
   return (
@@ -28,7 +29,10 @@ const Navbar = () => {
       <div className="navbar">
         <div className="d-flex align-items-center justify-content-between w-100">
           {/* hamburger */}
-          <div className="d-block d-md-none">
+          <div
+            className="d-block d-md-none"
+            onClick={() => onClickNavbar(false)}
+          >
             {/* add some state to it  */}
             <Hamburger />
           </div>
@@ -38,11 +42,11 @@ const Navbar = () => {
             <ImgNfontAwesome img={logo} height="50" width="150" />
           </div>
           <div className="d-flex align-items-center ml-auto">
-            <div className="mx-2 navbar__template">
+            <div className="mx-2 navbar__template d-none d-lg-block">
               <Text text="Buy Template" />
             </div>
             {/* profile image  */}
-            <div className="mx-3">
+            <div className="mx-3 d-none d-lg-block">
               <ImgNfontAwesome fontAwesome="fa-solid fa-user" />
             </div>
             {/* search entire website */}
@@ -55,7 +59,7 @@ const Navbar = () => {
                 <Text text="Log in" />
               </Link>
             </div> */}
-              <div className="navbar__signUp mx-3" onClick={signOutButton}>
+              <div className="navbar__signUp mx-lg-3" onClick={signOutButton}>
                 <Link to="/sign-up">
                   <Text text="Log Out" />
                 </Link>
@@ -68,6 +72,6 @@ const Navbar = () => {
       </div>
     </>
   );
-};
+});
 
 export default Navbar;
